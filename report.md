@@ -1,7 +1,7 @@
 Vagrant
 	Notar VirtualBox og gerir okkur kleift að setja upp okkar umhverfi á VirtualBoxinu. Ég er með linux og þurfti ekki að nota þetta.
 VirtualBox
-	Býr til virtual server in á harðadisknum sem VirtualBox er keyrt á. Í ykkar tilfelli þetta gert til að geta runað linux. Ég er sjálfur með linux og þarf ekki að nota þetta. 
+	Býr til virtual server inn á harðadisknum sem VirtualBox er keyrt á. Í ykkar tilfelli er þetta gert til að geta runað linux þótt maður sé með windows/mac. Ég er sjálfur með linux og þarf ekki að nota þetta. 
 Grunt
 	Tól fyrir javascript verkefni. Þegar þú villt gera fullt af hlutum við verkefnið þitt á reglulegu milli bili þá geturu notað Grunt til þess að keyra þessa hluti í staðinn fyrir að keyra þá handvirkt sjálfur.
 npm

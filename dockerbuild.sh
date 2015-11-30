@@ -12,6 +12,6 @@ cd dist
 npm install --production
 
 echo Building docker image
-docker build -t .
+docker build -t solvih13/tictactoe .
 
 echo "Done"
