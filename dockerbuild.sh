@@ -19,3 +19,4 @@ echo Building docker image
 docker build -t solvih13/tictactoe .
 
 echo "Done"
+
