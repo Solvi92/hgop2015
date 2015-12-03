@@ -1,6 +1,6 @@
 module.exports = function tictactoeCommandHandler(events) {
   var gameCreatedEvent = events[0];
-  var board = [["","",""]["","",""]["","",""]];
+  //var board = [["","",""]["","",""]["","",""]];
 
   var handlers = {
     "CreateGame": function (cmd) {
