@@ -1,6 +1,6 @@
-var tictactoeCommandHandler = require('./tictactoeCommandHandler');
+//var tictactoeCommandHandler = require('./tictactoeCommandHandler');
 /* op = oparator = X or O */
-
+/*
 describe('place command', function(){
   var given, when, then;
 
@@ -26,4 +26,4 @@ describe('place command', function(){
 
     JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
   });
-});
+});*/

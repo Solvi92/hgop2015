@@ -32,7 +32,7 @@ module.exports = function tictactoeCommandHandler(events) {
           timeStamp: cmd.timeStamp
         }];
       }
-    },
+    }/*,
     "Place": function (cmd) {
       {
         board[cmd.loc[0]][cmd.loc[1]] = cmd.op;
@@ -43,7 +43,7 @@ module.exports = function tictactoeCommandHandler(events) {
           timeStamp: cmd.timeStamp
         }];
       }
-    }
+    }*/
   };
 
   return {
