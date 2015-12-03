@@ -1,5 +1,6 @@
 module.exports = function tictactoeCommandHandler(events) {
   var gameCreatedEvent = events[0];
+  var board = [["","",""]["","",""]["","",""]];
 
   var handlers = {
     "CreateGame": function (cmd) {
@@ -21,12 +22,24 @@ module.exports = function tictactoeCommandHandler(events) {
             userName: cmd.userName,
             timeStamp: cmd.timeStamp
           }];
+          
         }
         return [{
           id: cmd.id,
           event: "GameJoined",
           userName: cmd.userName,
           otherUserName: gameCreatedEvent.userName,
+          timeStamp: cmd.timeStamp
+        }];
+      }
+    },
+    "Place": function (cmd) {
+      {
+        board[cmd.loc[0]][cmd.loc[1]] = cmd.op;
+        return [{
+          id: cmd.id,
+          event: "Placed",
+          userName: cmd.userName,
           timeStamp: cmd.timeStamp
         }];
       }
