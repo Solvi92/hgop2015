@@ -29,7 +29,17 @@ module.exports = function commandHandler(events) {
 					timeStamp: 	cmd.timeStamp
 				}];
 			}
-		}
+		},
+		"JoinGame" : function (cmd) {
+			{
+				return [{
+					id:     	cmd.id,
+					event: 		"GameJoined",
+					userName:   cmd.userName,
+					timeStamp:  cmd.timeStamp
+				}];
+			}
+	    }
 	};
 
 	return {
