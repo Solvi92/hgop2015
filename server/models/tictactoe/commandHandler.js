@@ -4,13 +4,15 @@ module.exports = function commandHandler(events) {
 	var gameState = {
 		gameCreatedEvent : events[0],
 		board : [["", "", ""], ["", "", ""], ["", "", ""]],
-		firstMoveMade : false
+		firstMoveMade : false,
+		moveCounter : 0
 	};
 
 	var eventHandlers = {
 		"MoveMade" : function(event) {
 			gameState.board[event.x][event.y] = event.side;
 			gameState.firstMoveMade = true;
+			gameState.moveCounter++;
 		}
 	};
 
@@ -108,6 +110,16 @@ module.exports = function commandHandler(events) {
 					name: 		gameState.gameCreatedEvent.name,
 					timeStamp: 	cmd.timeStamp
 				}];
+    		}
+
+			gameState.moveCounter++;
+    		if(gameState.moveCounter > 8) {
+    			return [{
+					id:      	cmd.id,
+					event:     	"Draw",
+					name:     	gameState.gameCreatedEvent.name,
+					timeStamp: 	cmd.timeStamp 
+				}]
     		}
 
     		/*Someone just moved and it's ok*/
