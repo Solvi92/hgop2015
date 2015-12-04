@@ -50,20 +50,20 @@ module.exports = function commandHandler(events) {
 			}
 	    },
 	    "MakeMove" : function (cmd) {
-	    	if(gameState.board[cmd.x][cmd.y] !== "") {
-	    		return [{
-	    			id: 		cmd.id,
-	    			event: 		"IllegalMove",
-	    			userName: 	cmd.userName,
-	    			name: 		gameState.gameCreatedEvent.name,
-	    			x: 			cmd.x,
-	    			y: 			cmd.y,
-	    			side: 		cmd.side,
-	    			timeStamp: 	cmd.timeStamp
-	    		}];
-	    	}
+			if(gameState.board[cmd.x][cmd.y] !== "") {
+				return [{
+					id: 		cmd.id,
+					event: 		"IllegalMove",
+					userName: 	cmd.userName,
+					name: 		gameState.gameCreatedEvent.name,
+					x: 			cmd.x,
+					y: 			cmd.y,
+					side: 		cmd.side,
+					timeStamp: 	cmd.timeStamp
+				}]
+			}
 
-	    	return [{
+			return [{
 				id:      	cmd.id,
 				event:     	"MoveMade",
 				userName:  	cmd.userName,
@@ -72,12 +72,13 @@ module.exports = function commandHandler(events) {
 				y:       	cmd.y,
 				side:      	cmd.side,
 				timeStamp: 	cmd.timeStamp 
-			}];
+			}]
 	    }
 	};
 
 	return {
 		executeCommand: function (cmd) {
+			console.log("handlers: " + cmd);
 			return handlers[cmd.comm](cmd);
 		}
 	};
