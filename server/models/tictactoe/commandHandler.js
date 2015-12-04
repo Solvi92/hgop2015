@@ -3,7 +3,7 @@ var _ = require('lodash');
 module.exports = function commandHandler(events) {
 	var gameState = {
 		gameCreatedEvent : events[0],
-		board : [["", "", "",], ["", "", ""], ["", "", ""]]
+		board : [["", "", ""], ["", "", ""], ["", "", ""]]
 	};
 
 	var eventHandlers = {
@@ -48,6 +48,18 @@ module.exports = function commandHandler(events) {
 					timeStamp:  	cmd.timeStamp
 				}];
 			}
+	    },
+	    "MakeMove" : function (cmd) {
+	    	return [{
+				id:      	cmd.id,
+				event:     	"MoveMade",
+				userName:  	cmd.userName,
+				name:     	gameState.gameCreatedEvent.name,
+				x:       	cmd.x,
+				y:       	cmd.y,
+				side:      	cmd.side,
+				timeStamp: 	cmd.timeStamp 
+			}]
 	    }
 	};
 
