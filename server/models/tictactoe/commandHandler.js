@@ -69,23 +69,35 @@ module.exports = function commandHandler(events) {
 			}
 
 			gameState.board[cmd.x][cmd.y] = cmd.side;
-
+			var win = false;
 			/* Check if someone Won */
     		for (var j = 0; j < 3; j++) {
+    			/* horizontaly */
     			if(gameState.board[j][0] !== "" &&
     				gameState.board[j][0] === gameState.board[j][1] &&
     				gameState.board[j][0] === gameState.board[j][2]) {
+					win = true;
+    			}
 
-					return [{
-						id: 		cmd.id,
-						event: 		cmd.side + " Won",
-						userName: 	cmd.userName,
-						name: 		gameState.gameCreatedEvent.name,
-						timeStamp: 	cmd.timeStamp
-					}]    				
-    			}	
+    			/* diagonaly */
+    			if(gameState.board[0][j] !== "" &&
+    				gameState.board[0][j] === gameState.board[1][j] &&
+    				gameState.board[0][j] === gameState.board[2][j]) {
+    				win = true;
+    			}
+    		}
+    		if(win) {
+    			/* Someone won! */
+    			return [{
+					id: 		cmd.id,
+					event: 		cmd.side + " Won",
+					userName: 	cmd.userName,
+					name: 		gameState.gameCreatedEvent.name,
+					timeStamp: 	cmd.timeStamp
+				}];
     		}
 
+    		/*Someone just moved and it's ok*/
 			return [{
 				id:      	cmd.id,
 				event:     	"MoveMade",
