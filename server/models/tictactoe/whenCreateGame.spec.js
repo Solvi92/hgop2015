@@ -22,4 +22,24 @@ describe('Create game command', function() {
 		var actualEvents = commandHandler(given).executeCommand(when);
 		JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
 	});
+
+	it('should create game with another player at diffirent time', function() {
+		given = [];
+		when = {
+			id:     	"2",
+			comm:     	"CreateGame",
+			userName:   "Smurf",
+			name:     	"FirstGame",
+			timeStamp:  "2015.12.02T10:29:44"
+		};
+		then = [{
+			id:      	"2",
+			event:    	"GameCreated",
+			userName:   "Smurf",
+			timeStamp:  "2015.12.02T10:29:44"
+		}];
+
+		var actualEvents = commandHandler(given).executeCommand(when);
+		JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
+	});
 });
