@@ -4,7 +4,7 @@ describe('JoinGame game command', function() {
 	var given, when, then;
 
 	it('should join game', function() {
-		given = [{
+		given = [{	
 			id: 	   "1",
 			event: 	   "GameCreated",
 			userName:  "Solvi",

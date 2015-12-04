@@ -50,6 +50,19 @@ module.exports = function commandHandler(events) {
 			}
 	    },
 	    "MakeMove" : function (cmd) {
+	    	if(gameState.board[cmd.x][cmd.y] !== "") {
+	    		return [{
+	    			id: 		cmd.id,
+	    			event: 		"IllegalMove",
+	    			userName: 	cmd.userName,
+	    			name: 		gameState.gameCreatedEvent.name,
+	    			x: 			cmd.x,
+	    			y: 			cmd.y,
+	    			side: 		cmd.side,
+	    			timeStamp: 	cmd.timeStamp
+	    		}];
+	    	}
+
 	    	return [{
 				id:      	cmd.id,
 				event:     	"MoveMade",
@@ -59,7 +72,7 @@ module.exports = function commandHandler(events) {
 				y:       	cmd.y,
 				side:      	cmd.side,
 				timeStamp: 	cmd.timeStamp 
-			}]
+			}];
 	    }
 	};
 
