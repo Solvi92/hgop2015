@@ -18,13 +18,34 @@ describe('JoinGame game command', function() {
 			timeStamp: 	"2015.12.02T11:30:44"
 		};
 		then = [{
-			id: 	   "1",
-			event: 	   "GameJoined",
-			userName:  "Smurf",
-			timeStamp: "2015.12.02T11:30:44"
+			id: 	   		"1",
+			event: 	   		"GameJoined",
+			userName:  		"Smurf",
+			otherUserName: 	"Solvi",
+			timeStamp: 		"2015.12.02T11:30:44"
 		}];
 
 		var actualEvents = commandHandler(given).executeCommand(when);
+		JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
+	});
+
+	it('should reject joining of a non-existing game', function() {
+		given = [];
+		when = {
+			id: "1",
+			comm: "JoinGame",
+			userName: "Solvi",
+			name: "FirstGame",
+			timeStamp: "2015.12.02T11:30:55"
+		};
+		then = [{
+			id: "1",
+			event: "GameDoesNotExist",
+			userName: "Solvi",
+			timeStamp: "2015.12.02T11:30:55"
+		}];
+
+		var actualEvents = commandHandler(given). executeCommand(when);
 		JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
 	});
 });

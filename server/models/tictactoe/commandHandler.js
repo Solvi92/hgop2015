@@ -32,11 +32,20 @@ module.exports = function commandHandler(events) {
 		},
 		"JoinGame" : function (cmd) {
 			{
+				if (gameState.gameCreatedEvent === undefined) {
+					return [{
+						id: 	    	cmd.id,
+						event: 			"GameDoesNotExist",
+						userName:   	cmd.userName,
+						timeStamp:  	cmd.timeStamp
+					}];	
+				}
 				return [{
-					id:     	cmd.id,
-					event: 		"GameJoined",
-					userName:   cmd.userName,
-					timeStamp:  cmd.timeStamp
+					id: 	    	cmd.id,
+					event: 			"GameJoined",
+					userName:   	cmd.userName,
+					otherUserName: 	gameState.gameCreatedEvent.userName,
+					timeStamp:  	cmd.timeStamp
 				}];
 			}
 	    }
