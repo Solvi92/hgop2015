@@ -3,15 +3,15 @@ var _ = require('lodash');
 module.exports = function commandHandler(events) {
 	var gameState = {
 		gameCreatedEvent : events[0],
-		board : [["", "", ""], ["", "", ""], ["", "", ""]]
-		firstMoveMade = false;
+		board : [["", "", ""], ["", "", ""], ["", "", ""]],
+		firstMoveMade : false
 	};
 
 	var eventHandlers = {
 		"MoveMade" : function(event) {
 			gameState.board[event.x][event.y] = event.side;
+			gameState.firstMoveMade = true
 		}
-		gameState.firstMoveMade = true;
 	};
 
 	_.each(events, function(event) {
@@ -53,7 +53,7 @@ module.exports = function commandHandler(events) {
 	    },
 	    "MakeMove" : function (cmd) {
 			if(gameState.board[cmd.x][cmd.y] !== "" ||
-				(cmd.side = "O" && !gameState.firstMoveMade)) {
+				(cmd.side === "O" && !gameState.firstMoveMade)) {
 				return [{
 					id: 		cmd.id,
 					event: 		"IllegalMove",
