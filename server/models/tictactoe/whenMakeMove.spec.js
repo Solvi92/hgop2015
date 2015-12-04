@@ -1,7 +1,7 @@
 var commandHandler = require('./commandHandler');
 
 describe('make move game command', function() {
-	var given, when, then
+	var given, when, then;
 
 	beforeEach(function() {
 		given = [{

@@ -10,7 +10,7 @@ module.exports = function commandHandler(events) {
 	var eventHandlers = {
 		"MoveMade" : function(event) {
 			gameState.board[event.x][event.y] = event.side;
-			gameState.firstMoveMade = true
+			gameState.firstMoveMade = true;
 		}
 	};
 
@@ -52,6 +52,8 @@ module.exports = function commandHandler(events) {
 			}
 	    },
 	    "MakeMove" : function (cmd) {
+
+	    	/* Check illegal moves */
 			if(gameState.board[cmd.x][cmd.y] !== "" ||
 				(cmd.side === "O" && !gameState.firstMoveMade)) {
 				return [{
@@ -65,6 +67,24 @@ module.exports = function commandHandler(events) {
 					timeStamp: 	cmd.timeStamp
 				}]
 			}
+
+			gameState.board[cmd.x][cmd.y] = cmd.side;
+
+			/* Check if someone Won */
+    		for (var j = 0; j < 3; j++) {
+    			if(gameState.board[j][0] !== "" &&
+    				gameState.board[j][0] === gameState.board[j][1] &&
+    				gameState.board[j][0] === gameState.board[j][2]) {
+
+					return [{
+						id: 		cmd.id,
+						event: 		cmd.side + " Won",
+						userName: 	cmd.userName,
+						name: 		gameState.gameCreatedEvent.name,
+						timeStamp: 	cmd.timeStamp
+					}]    				
+    			}	
+    		}
 
 			return [{
 				id:      	cmd.id,
@@ -81,7 +101,6 @@ module.exports = function commandHandler(events) {
 
 	return {
 		executeCommand: function (cmd) {
-			console.log("handlers: " + cmd);
 			return handlers[cmd.comm](cmd);
 		}
 	};
