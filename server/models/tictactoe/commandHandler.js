@@ -86,6 +86,14 @@ module.exports = function commandHandler(events) {
     				win = true;
     			}
     		}
+
+    		/* verticaly */	
+			if(gameState.board[0][0] !== "" &&
+				gameState.board[0][0] === gameState.board[1][1] &&
+				gameState.board[0][0] === gameState.board[2][2]) {
+				win = true;
+			}
+			
     		if(win) {
     			/* Someone won! */
     			return [{
