@@ -1,13 +1,41 @@
-[31m>> [39mMocha exploded!
-[31m>> [39mError: Cannot find module '../model/tictactoe/tictactoeCommandHandler'[31m
->> [39m    at Function.Module._resolveFilename (module.js:338:15)[31m
->> [39m    at Function.Module._load (module.js:289:25)[31m
->> [39m    at Module.require (module.js:366:17)[31m
->> [39m    at require (module.js:385:17)[31m
->> [39m    at Object.<anonymous> (/home/solvi/Skoli/hgop/hgop2015/server/api/command.controller.js:5:24)[31m
->> [39m    at Module._compile (module.js:425:26)[31m
->> [39m    at Object.Module._extensions..js (module.js:432:10)[31m
->> [39m    at Module.load (module.js:356:32)[31m
->> [39m    at Function.Module._load (module.js:313:12)[31m
->> [39m    at Module.require (module.js:366:17)[31m
->> [39m    at require (module.js:385:17)
+
+[0m[0m
+Express server listening on 9000, in test mode
+[0m  GET /api/gameHistory[0m
+[90mPOST /api/createGame [32m200 [90m12ms - 127b[0m
+[90mGET /api/gameHistory/999 [32m200 [90m8ms - 127b[0m
+[2K[0G  [32m  ✓[0m[90m should respond with JSON array with created events for game [0m[31m(91ms)[0m
+
+[0m  In memory store[0m
+[2K[0G  [32m  ✓[0m[90m Should return empty array for unknown id [0m
+[2K[0G  [32m  ✓[0m[90m Should return events previously stored [0m
+[2K[0G  [32m  ✓[0m[90m should append stored events to events previously stored [0m
+
+[0m  won game command[0m
+[2K[0G  [32m  ✓[0m[90m should win horizontaly [0m
+[2K[0G  [32m  ✓[0m[90m should win diagonaly [0m
+[2K[0G  [32m  ✓[0m[90m should win verticaly [0m
+[2K[0G  [32m  ✓[0m[90m should win verticaly in the other direction [0m
+[2K[0G  [32m  ✓[0m[90m should draw [0m
+
+[0m  tictactoe game context[0m
+[2K[0G  [32m  ✓[0m[90m should route command to instantiated tictactoe game with event stream from store and return and store generated events. Test using fakes/stubs. [0m
+[2K[0G  [32m  ✓[0m[90m should route command to instantiated tictactoe game with event stream from store and return generated events, using mock style tests. [0m
+
+[0m  Create game command[0m
+[2K[0G  [32m  ✓[0m[90m should create game [0m
+[2K[0G  [32m  ✓[0m[90m should create game with another player at diffirent time [0m
+
+[0m  JoinGame game command[0m
+[2K[0G  [32m  ✓[0m[90m should join game [0m
+[2K[0G  [32m  ✓[0m[90m should reject joining of a non-existing game [0m
+
+[0m  make move game command[0m
+[0m    on new game[0m
+[2K[0G    [32m  ✓[0m[90m should make a move [0m
+[2K[0G    [32m  ✓[0m[90m should reject a move in a occupied place [0m
+[2K[0G    [32m  ✓[0m[90m should reject a move if O tries to be first [0m
+
+
+[92m [0m[32m 18 passing[0m[90m (130ms)[0m
+

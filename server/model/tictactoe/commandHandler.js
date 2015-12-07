@@ -28,8 +28,10 @@ module.exports = function commandHandler(events) {
 			{
 				return [{
 					id: 		cmd.id,
+					gameId: 	cmd.gameId,
 					event: 		"GameCreated",
 					userName: 	cmd.userName,
+					name: 		cmd.name,
 					timeStamp: 	cmd.timeStamp
 				}];
 			}

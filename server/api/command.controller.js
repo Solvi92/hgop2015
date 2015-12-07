@@ -2,7 +2,7 @@
 
 var _ = require('lodash');
 var boundedContext = require('../model/tictactoe/tictactoeBoundedContext');
-var tictactoeHandler = require('../model/tictactoe/tictactoeCommandHandler');
+var tictactoeHandler = require('../model/tictactoe/commandHandler');
 
 var app = require('../app');
 

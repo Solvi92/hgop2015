@@ -17,7 +17,7 @@ describe('won game command', function() {
 			userName:  		"Smurf",
 			otherUserName: 	"Solvi",
 			timeStamp: 		"2015.12.02T11:30:50"
-		}]; 
+		}];
 	});
 
 	it('should win horizontaly', function() {
