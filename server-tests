@@ -1,0 +1,13 @@
+[31m>> [39mMocha exploded!
+[31m>> [39mError: Cannot find module '../model/tictactoe/tictactoeCommandHandler'[31m
+>> [39m    at Function.Module._resolveFilename (module.js:338:15)[31m
+>> [39m    at Function.Module._load (module.js:289:25)[31m
+>> [39m    at Module.require (module.js:366:17)[31m
+>> [39m    at require (module.js:385:17)[31m
+>> [39m    at Object.<anonymous> (/home/solvi/Skoli/hgop/hgop2015/server/api/command.controller.js:5:24)[31m
+>> [39m    at Module._compile (module.js:425:26)[31m
+>> [39m    at Object.Module._extensions..js (module.js:432:10)[31m
+>> [39m    at Module.load (module.js:356:32)[31m
+>> [39m    at Function.Module._load (module.js:313:12)[31m
+>> [39m    at Module.require (module.js:366:17)[31m
+>> [39m    at require (module.js:385:17)
