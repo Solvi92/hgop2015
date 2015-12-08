@@ -52,10 +52,30 @@ describe('TEST ENV GET /api/gameHistory', function () {
 
 
    it('Should execute fluid API test', function (done) {
-     /*
+    function given(cmdName) {
+      var cmd = {
+        name: cmdName,
+        destination: undefined
+      };
+      var expectations = [];
+      var givenApi = {
+        sendTo: function (dest) {
+          cmd.destination = dest;
+          return givenApi;
+        },
+        expect: function(evnetName) {
+          expectations.push(eventName);
+          return givenApi;
+        },
+        when: function(done) {
+
+        }
+      }
+      return givenApi;
+    }
      given(user("YourUser").createsGame("TheFirstGame"))
      .expect("GameCreated").withName("TheFirstGame").isOk(done);
-      */
+      
      done();
    });
 });
