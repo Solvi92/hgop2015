@@ -113,7 +113,7 @@ module.exports = function commandHandler(events) {
 					timeStamp: 	cmd.timeStamp
 				}];
     		}
-
+			/* Check if there is a draw */
 			gameState.moveCounter++;
     		if(gameState.moveCounter > 8) {
     			return [{
