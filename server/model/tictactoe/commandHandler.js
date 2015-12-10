@@ -107,6 +107,7 @@ module.exports = function commandHandler(events) {
     			/* Someone won! */
     			return [{
 					id: 		cmd.id,
+					gameId: 	cmd.gameId,
 					event: 		cmd.side + " Won",
 					userName: 	cmd.userName,
 					name: 		gameState.gameCreatedEvent.name,
@@ -118,10 +119,12 @@ module.exports = function commandHandler(events) {
     		if(gameState.moveCounter > 8) {
     			return [{
 					id:      	cmd.id,
+					gameId: 	cmd.gameId,
 					event:     	"Draw",
+					userName: 	cmd.userName,
 					name:     	gameState.gameCreatedEvent.name,
 					timeStamp: 	cmd.timeStamp 
-				}]
+				}] 
     		}
 
     		/*Someone just moved and it's ok*/

@@ -286,6 +286,7 @@ describe('won game command', function() {
 		then = [{
 			id: 		"1",
 			event: 		"Draw",
+			userName: 	"Solvi",
 			name: 		"FirstGame",
 			timeStamp: 	"2015.12.02T11:30:50"
 		}];
