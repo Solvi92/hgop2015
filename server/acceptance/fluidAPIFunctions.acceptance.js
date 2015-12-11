@@ -3,42 +3,45 @@ var should = require('should');
 var request = require('supertest');
 var acceptanceUrl = process.env.ACCEPTANCE_URL;
 
-var postCommands = function(commands) {
-    var req = request(acceptanceUrl);
-    if(commands.length < 1 ) return;
-    var apiCommand = commands[0].apiCommand;
-    var apiURL = '/api/' + commands[0].apiCommand;
-    delete commands[0].apiCommand;
-    req
-      .post(apiURL)
-      .type('json')
-      .send(commands[0])
-      .end(function (err, res) {
-        if (err) return done(err);
-      });
-
-    commands.shift();
-    postCommands(commands);
+var postCommands = function(commands, done) {
+  if(commands.length < 1) {
+    done();
+    return;
   }
+  
+  var apiCommand = commands[0].apiCommand;
+  var apiURL = '/api/' + commands[0].apiCommand;
+  delete commands[0].apiCommand;
+  var req = request(acceptanceUrl);
+  req
+    .post(apiURL)
+    .type('json')
+    .send(commands[0])
+    .end(function (err, res) {
+      if (err) return done(err);
+      commands.shift();
+      postCommands(commands, done);
+    });
+}
 
+var userInfo = {
+  gameName: "ThirdGame",
+  gameId: "1337"
+}
 
 /* Fluid API testing */
 module.exports = {
   user: function(userName) {
-    var cmd = {
-      gameName: "ThirdGame",
-      gameId: "1337"
-    };
     var command = {};
     var userApi = {
       createsGame: function(gameId, gameName) {
-        cmd.gameId = gameId;
-        cmd.gameName =gameName;
+        userInfo.gameId = gameId;
+        userInfo.gameName = gameName;
         command = {
           id:         "1",
           gameId:     gameId,
           comm:       "CreateGame",
-          userName:   "Solvi",
+          userName:   userName,
           name:       gameName,
           timeStamp:  "2015.12.02T11:29:44",
           apiCommand: "createGame"
@@ -51,7 +54,7 @@ module.exports = {
           gameId:     gameId,
           comm:       "JoinGame",
           userName:   userName,
-          name:       cmd.gameName,
+          name:       userInfo.gameName,
           timeStamp:  "2015.12.02T11:29:44",
           apiCommand: "joinGame"
         };
@@ -62,11 +65,11 @@ module.exports = {
           id:         "1",
           comm:       "MakeMove",
           userName:   userName,
-          name:       cmd.gameName,
+          name:       userInfo.gameName,
           x:          x,
           y:          y,
           side:       side, 
-          gameId:     cmd.gameId,
+          gameId:     userInfo.gameId,
           timeStamp:  "2015.12.02T11:29:44",
           apiCommand: "placeMove"
         };
@@ -108,29 +111,30 @@ module.exports = {
         return givenApi;
       },
       isOk: function(done) {
-        postCommands(commands);
-        var apiURL = '/api/gameHistory/' + expected.gameId;
+        postCommands(commands, function () {
+          var apiURL = '/api/gameHistory/' + expected.gameId;
 
-        var req = request(acceptanceUrl);
-        request(acceptanceUrl)
-          .get(apiURL)
-          .expect(200)
-          .expect('Content-Type', /json/)
-          .end(function (err, res) {
-            if (err) return done(err);
-            res.body.should.be.instanceof(Array);
-            should(res.body[res.body.length - 1]).eql(
-              {
-                "id":        expected.id,
-                "gameId":    expected.gameId,
-                "event":     expected.event,
-                "userName":  expected.userName,
-                "name":      expected.name,
-                "timeStamp": expected.timeStamp
-              });
-            done();
-          });
-        }
+          var req = request(acceptanceUrl);
+          request(acceptanceUrl)
+            .get(apiURL)
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .end(function (err, res) {
+              if (err) return done(err);
+              res.body.should.be.instanceof(Array);
+              should(res.body[res.body.length - 1]).eql(
+                {
+                  "id":        expected.id,
+                  "gameId":    expected.gameId,
+                  "event":     expected.event,
+                  "userName":  expected.userName,
+                  "name":      expected.name,
+                  "timeStamp": expected.timeStamp
+                });
+              done();
+            });
+        });
+      }
     }
     return givenApi;
   }
