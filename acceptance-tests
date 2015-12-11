@@ -2,10 +2,103 @@
 [0m[0m
 [0m  TEST ENV GET /api/gameHistory[0m
 [2K[0G  [32m  ✓[0m[90m Should have ACCEPTANCE_URL environment variable exported. [0m
-[2K[0G  [32m  ✓[0m[90m should execute same test using old style [0m[31m(86ms)[0m
+[2K[0G  [32m  ✓[0m[90m should execute same test using old style [0m[31m(124ms)[0m
+command:  { id: '1',
+  gameId: '222',
+  comm: 'CreateGame',
+  userName: 'Solvi',
+  name: 'SecondGame',
+  timeStamp: '2015.12.02T11:29:44',
+  apiCommand: 'createGame' }
+done
 [2K[0G  [32m  ✓[0m[90m Should execute fluid API test [0m
-[2K[0G  [32m  ✓[0m[90m Should play game until won or drawn [0m[33m(54ms)[0m
+command:  { id: '1',
+  gameId: '1337',
+  comm: 'CreateGame',
+  userName: 'Solvi',
+  name: 'ThirdGame',
+  timeStamp: '2015.12.02T11:29:44',
+  apiCommand: 'createGame' }
+command:  { id: '1',
+  gameId: '1337',
+  comm: 'JoinGame',
+  userName: 'Gulli',
+  name: 'ThirdGame',
+  timeStamp: '2015.12.02T11:29:44',
+  apiCommand: 'joinGame' }
+command:  { id: '1',
+  comm: 'MakeMove',
+  userName: 'Solvi',
+  name: 'ThirdGame',
+  x: 0,
+  y: 0,
+  side: 'X',
+  gameId: '1337',
+  timeStamp: '2015.12.02T11:29:44',
+  apiCommand: 'placeMove' }
+command:  { id: '1',
+  comm: 'MakeMove',
+  userName: 'Gulli',
+  name: 'ThirdGame',
+  x: 1,
+  y: 0,
+  side: 'O',
+  gameId: '1337',
+  timeStamp: '2015.12.02T11:29:44',
+  apiCommand: 'placeMove' }
+command:  { id: '1',
+  comm: 'MakeMove',
+  userName: 'Solvi',
+  name: 'ThirdGame',
+  x: 2,
+  y: 0,
+  side: 'X',
+  gameId: '1337',
+  timeStamp: '2015.12.02T11:29:44',
+  apiCommand: 'placeMove' }
+command:  { id: '1',
+  comm: 'MakeMove',
+  userName: 'Gulli',
+  name: 'ThirdGame',
+  x: 0,
+  y: 1,
+  side: 'O',
+  gameId: '1337',
+  timeStamp: '2015.12.02T11:29:44',
+  apiCommand: 'placeMove' }
+command:  { id: '1',
+  comm: 'MakeMove',
+  userName: 'Solvi',
+  name: 'ThirdGame',
+  x: 1,
+  y: 1,
+  side: 'X',
+  gameId: '1337',
+  timeStamp: '2015.12.02T11:29:44',
+  apiCommand: 'placeMove' }
+command:  { id: '1',
+  comm: 'MakeMove',
+  userName: 'Gulli',
+  name: 'ThirdGame',
+  x: 2,
+  y: 1,
+  side: 'O',
+  gameId: '1337',
+  timeStamp: '2015.12.02T11:29:44',
+  apiCommand: 'placeMove' }
+command:  { id: '1',
+  comm: 'MakeMove',
+  userName: 'Solvi',
+  name: 'ThirdGame',
+  x: 0,
+  y: 2,
+  side: 'X',
+  gameId: '1337',
+  timeStamp: '2015.12.02T11:29:44',
+  apiCommand: 'placeMove' }
+done
+[2K[0G  [32m  ✓[0m[90m Should play game until won or drawn [0m[33m(58ms)[0m
 
 
-[92m [0m[32m 4 passing[0m[90m (167ms)[0m
+[92m [0m[32m 4 passing[0m[90m (219ms)[0m
 
