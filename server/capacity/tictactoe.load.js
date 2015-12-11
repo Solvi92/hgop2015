@@ -1,12 +1,12 @@
 var user = require('../acceptance/fluidAPIFunctions.acceptance.js').user;
 var given = require('../acceptance/fluidAPIFunctions.acceptance.js').given;
 
-it('Should play 400 games under 9.2 seconds.', function (done) {
+it('Should play 300 games under 9 seconds.', function (done) {
   var doneCount = 0;
   var gamesToPlay = 500;
-  var x = 23;
+  var x = 30;
 
-  this.timeout(x * 400);
+  this.timeout(x * 300);
 
   var QED = function () {
     if (gamesToPlay === ++doneCount) {
