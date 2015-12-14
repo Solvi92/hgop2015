@@ -1,10 +1,10 @@
 var user = require('../acceptance/fluidAPIFunctions.acceptance.js').user;
 var given = require('../acceptance/fluidAPIFunctions.acceptance.js').given;
 
-it('Should play 100 games under 7 seconds.', function (done) {
+it('Should play 100 games under 8 seconds.', function (done) {
   var doneCount = 0;
   var gamesToPlay = 100;
-  var x = 70;
+  var x = 80;
 
   this.timeout(x * 100);
 

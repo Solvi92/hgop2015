@@ -14,12 +14,13 @@ bower
 
 Day 9.
 Result from my load test
-	Ég prufaði að load testa á dev vélinni sem er mikið hraðari en test vélin þar sem dev vélin er mín vél á meðan test vélin er virtualbox. Þannig fyrst þegar ég notaði jenkins þá þurfti ég að lækka leikina frá 1000 leiki á 9 sec nyður í 100 leiki á 7 sec.
-	Should play 100 games under 7 seconds. (6779ms) 
-	Should play 100 games under 7 seconds. (4562ms)
-	Should play 100 games under 7 seconds. (4433ms)
-	Should play 100 games under 7 seconds. (4502ms)
-	Should play 100 games under 7 seconds. (4492ms)
+	Ég prufaði að load testa á dev vélinni sem er mikið hraðari en test vélin þar sem dev vélin er mín vél á meðan test vélin er virtualbox. Þannig fyrst þegar ég notaði jenkins þá þurfti ég að lækka leikina frá 1000 leiki á 9 sec nyður í 100 leiki á 8 sec.
+	Should play 100 games under 8 seconds. (6779ms) 
+	Should play 100 games under 8 seconds. (4562ms)
+	Should play 100 games under 8 seconds. (4433ms)
+	Should play 100 games under 8 seconds. (4502ms)
+	Should play 100 games under 8 seconds. (4492ms)
+	Should play 100 games under 8 seconds. (7002ms)
 Does the load test run in serial or in parallel?
 	They run in serial.
 	
