@@ -50,7 +50,7 @@ if [[ $rc != 0 ]] ; then
 fi
 
 echo Building docker image
-docker build -t solvih13/tictactoe .
+docker build -t solvih13/tictactoe:$GIT_COMMIT .
 
 rc=$?
 if [[ $rc != 0 ]] ; then
