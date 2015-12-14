@@ -1,40 +1,23 @@
-
-[0m[0m
-[0m  GET /api/gameHistory[0m
-[90mPOST /api/createGame [32m200 [90m12ms - 127b[0m
-[90mGET /api/gameHistory/999 [32m200 [90m3ms - 127b[0m
-[2K[0G  [32m  ✓[0m[90m should respond with JSON array with created events for game [0m[31m(85ms)[0m
-
-[0m  In memory store[0m
-[2K[0G  [32m  ✓[0m[90m Should return empty array for unknown id [0m
-[2K[0G  [32m  ✓[0m[90m Should return events previously stored [0m
-[2K[0G  [32m  ✓[0m[90m should append stored events to events previously stored [0m
-
-[0m  won game command[0m
-[2K[0G  [32m  ✓[0m[90m should win horizontaly [0m
-[2K[0G  [32m  ✓[0m[90m should win diagonaly [0m
-[2K[0G  [32m  ✓[0m[90m should win verticaly [0m
-[2K[0G  [32m  ✓[0m[90m should win verticaly in the other direction [0m
-[2K[0G  [32m  ✓[0m[90m should draw [0m
-
-[0m  tictactoe game context[0m
-[2K[0G  [32m  ✓[0m[90m should route command to instantiated tictactoe game with event stream from store and return and store generated events. Test using fakes/stubs. [0m
-[2K[0G  [32m  ✓[0m[90m should route command to instantiated tictactoe game with event stream from store and return generated events, using mock style tests. [0m
-
-[0m  Create game command[0m
-[2K[0G  [32m  ✓[0m[90m should create game [0m
-[2K[0G  [32m  ✓[0m[90m should create game with another player at diffirent time [0m
-
-[0m  JoinGame game command[0m
-[2K[0G  [32m  ✓[0m[90m should join game [0m
-[2K[0G  [32m  ✓[0m[90m should reject joining of a non-existing game [0m
-
-[0m  make move game command[0m
-[0m    on new game[0m
-[2K[0G    [32m  ✓[0m[90m should make a move [0m
-[2K[0G    [32m  ✓[0m[90m should reject a move in a occupied place [0m
-[2K[0G    [32m  ✓[0m[90m should reject a move if O tries to be first [0m
-
-
-[92m [0m[32m 18 passing[0m[90m (121ms)[0m
-
+Express server listening on 9000, in test mode
+[90mPOST /api/createGame [32m200 [90m10ms - 127b[0m
+[90mGET /api/gameHistory/999 [32m200 [90m2ms - 127b[0m
+<testsuite name="Mocha Tests" tests="18" failures="0" errors="0" skipped="0" timestamp="Mon, 14 Dec 2015 11:26:29 GMT" time="0.194">
+<testcase classname="GET /api/gameHistory" name="should respond with JSON array with created events for game" time="0.12"/>
+<testcase classname="In memory store" name="Should return empty array for unknown id" time="0.001"/>
+<testcase classname="In memory store" name="Should return events previously stored" time="0"/>
+<testcase classname="In memory store" name="should append stored events to events previously stored" time="0"/>
+<testcase classname="won game command" name="should win horizontaly" time="0.001"/>
+<testcase classname="won game command" name="should win diagonaly" time="0"/>
+<testcase classname="won game command" name="should win verticaly" time="0.001"/>
+<testcase classname="won game command" name="should win verticaly in the other direction" time="0"/>
+<testcase classname="won game command" name="should draw" time="0"/>
+<testcase classname="tictactoe game context" name="should route command to instantiated tictactoe game with event stream from store and return and store generated events. Test using fakes/stubs." time="0.001"/>
+<testcase classname="tictactoe game context" name="should route command to instantiated tictactoe game with event stream from store and return generated events, using mock style tests." time="0.053"/>
+<testcase classname="Create game command" name="should create game" time="0"/>
+<testcase classname="Create game command" name="should create game with another player at diffirent time" time="0"/>
+<testcase classname="JoinGame game command" name="should join game" time="0"/>
+<testcase classname="JoinGame game command" name="should reject joining of a non-existing game" time="0"/>
+<testcase classname="make move game command on new game" name="should make a move" time="0"/>
+<testcase classname="make move game command on new game" name="should reject a move in a occupied place" time="0"/>
+<testcase classname="make move game command on new game" name="should reject a move if O tries to be first" time="0"/>
+</testsuite>
