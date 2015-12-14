@@ -20,3 +20,5 @@ Result from my load test
 	Should play 100 games under 7 seconds. (4433ms)
 	Should play 100 games under 7 seconds. (4502ms)
 	Should play 100 games under 7 seconds. (4492ms)
+Does the load test run in serial or in parallel?
+	
