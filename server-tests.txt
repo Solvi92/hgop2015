@@ -1,0 +1,41 @@
+
+[0m[0m
+Express server listening on 9000, in test mode
+[0m  GET /api/gameHistory[0m
+[90mPOST /api/createGame [32m200 [90m13ms - 127b[0m
+[90mGET /api/gameHistory/999 [32m200 [90m3ms - 127b[0m
+[2K[0G  [32m  ✓[0m[90m should respond with JSON array with created events for game [0m[31m(94ms)[0m
+
+[0m  In memory store[0m
+[2K[0G  [32m  ✓[0m[90m Should return empty array for unknown id [0m
+[2K[0G  [32m  ✓[0m[90m Should return events previously stored [0m
+[2K[0G  [32m  ✓[0m[90m should append stored events to events previously stored [0m
+
+[0m  won game command[0m
+[2K[0G  [32m  ✓[0m[90m should win horizontaly [0m
+[2K[0G  [32m  ✓[0m[90m should win diagonaly [0m
+[2K[0G  [32m  ✓[0m[90m should win verticaly [0m
+[2K[0G  [32m  ✓[0m[90m should win verticaly in the other direction [0m
+[2K[0G  [32m  ✓[0m[90m should draw [0m
+
+[0m  tictactoe game context[0m
+[2K[0G  [32m  ✓[0m[90m should route command to instantiated tictactoe game with event stream from store and return and store generated events. Test using fakes/stubs. [0m
+[2K[0G  [32m  ✓[0m[90m should route command to instantiated tictactoe game with event stream from store and return generated events, using mock style tests. [0m
+
+[0m  Create game command[0m
+[2K[0G  [32m  ✓[0m[90m should create game [0m
+[2K[0G  [32m  ✓[0m[90m should create game with another player at diffirent time [0m
+
+[0m  JoinGame game command[0m
+[2K[0G  [32m  ✓[0m[90m should join game [0m
+[2K[0G  [32m  ✓[0m[90m should reject joining of a non-existing game [0m
+
+[0m  make move game command[0m
+[0m    on new game[0m
+[2K[0G    [32m  ✓[0m[90m should make a move [0m
+[2K[0G    [32m  ✓[0m[90m should reject a move in a occupied place [0m
+[2K[0G    [32m  ✓[0m[90m should reject a move if O tries to be first [0m
+
+
+[92m [0m[32m 18 passing[0m[90m (134ms)[0m
+
