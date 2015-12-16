@@ -11,6 +11,7 @@ if [ -z "$GIT_COMMIT" ]; then
   export GIT_URL=$(git config --get remote.origin.url)
 fi
 
+# Remove .git from url in order to get https link to repo (assumes https url for GitHub)
 export GITHUB_URL=$(echo $GIT_URL | rev | cut -c 5- | rev)
 
 echo Building app

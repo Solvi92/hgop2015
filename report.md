@@ -23,4 +23,10 @@ Result from my load test
 	Should play 100 games under 8 seconds. (7002ms)
 Does the load test run in serial or in parallel?
 	They run in serial.
+What does this give us? Who would use the capability to track versions and why?
+	This gives us version controll and a controlled production enviroment. If you need to work on a old version or get something that worked some versions ago you can see them and deploy them again.
+Who would use capability to deploy any version and why?
 	
+What was wrong with having docker push in the deployment script rather than in the dockerbuild.sh script?
+	
+How does the "deploy any version, anywhere" build feature work? Hint: Track GIT_COMMIT

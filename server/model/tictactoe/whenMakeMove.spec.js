@@ -76,7 +76,6 @@ describe('make move game command', function() {
 				side: 		"O",
 				timeStamp: 	"2015.12.02T11:30:50"
 			}];
-
 			var actualEvents = commandHandler(given).executeCommand(when);
 			JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
 		});
