@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var commandHandler = require('./commandHandler');
 
 describe('JoinGame game command', function() {
