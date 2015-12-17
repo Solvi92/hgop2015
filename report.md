@@ -26,7 +26,23 @@ Does the load test run in serial or in parallel?
 What does this give us? Who would use the capability to track versions and why?
 	This gives us version controll and a controlled production enviroment. If you need to work on a old version or get something that worked some versions ago you can see them and deploy them again.
 Who would use capability to deploy any version and why?
-	
-What was wrong with having docker push in the deployment script rather than in the dockerbuild.sh script?
-	
-How does the "deploy any version, anywhere" build feature work? Hint: Track GIT_COMMIT
+	Þegar það er eitthvað að nýjast version þá er gott að geta farið aftur í tímann fyrir forritara eða þegar gamla versionið gat gert eitthvað sem nýja gat ekki. Líka þegar þú villt hafa ákveðna clienta í einhverju gömlu versioni.
+
+Day 11
+to get GameDraw or GameWon you have to somtimes push 2 times in the last place did not have time for that.
+
+Jenkins scripts:
+	TicTacToe - Build:
+		./dockerbuild.sh
+	TicTacToe - Acceptance Test:
+		./testenv-push.sh 127.0.0.1 2222 9000
+	TicTacToe - Load Test
+		./testenv-loadTest.sh
+	TicTacToe - Deploy To Production
+		./testenv-push.sh 127.0.0.1 2222 6666	
+
+Bless og takk fyrir mig.
+Þessir tímar voru mjög þreytandi þar sem maður var mikið fastur á sama stað í langann tíma. En það er krefjandi og skemmtilegt þar sem forritun og að setja upp umhverfi  í kringum verkefni getur verið erfitt og það er allavegana eina leiðin fyrir mig að læra almennilega á hlutina.
+Það var góð hjálp í þessum tíma og það var gaman að hafa eitt verkefni sem maður var að vinna í allan tíman í staðin fyrir fullt af litlum verkefnum.
+
+Sölvi Hjaltason.

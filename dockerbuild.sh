@@ -1,5 +1,9 @@
 #!/bin/bash
 
+env
+npm install
+bower install
+
 echo Cleaning...
 rm -rf ./dist
 
