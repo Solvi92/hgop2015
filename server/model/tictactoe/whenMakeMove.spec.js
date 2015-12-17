@@ -24,6 +24,7 @@ describe('make move game command', function() {
 		it('should make a move', function() {
 			when = {
 				id: 		"1",
+				gameId: 	"666",
 				comm: 		"MakeMove",
 				userName: 	"Solvi",
 				x: 			0,
@@ -33,6 +34,7 @@ describe('make move game command', function() {
 			};
 			then = [{
 				id: 		"1",
+				gameId: 	"666",
 				event: 		"MoveMade",
 				userName: 	"Solvi",
 				name: 		"FirstGame",
@@ -49,6 +51,7 @@ describe('make move game command', function() {
 		it('should reject a move in a occupied place', function() {
 			given.push({
 				id: 		"1",
+				gameId: 	"666",
 				event: 		"MoveMade",
 				userName: 	"Solvi",
 				name: 		"FirstGame",
@@ -59,6 +62,7 @@ describe('make move game command', function() {
 			});
 			when = {
 				id: 		"1",
+				gameId: 	"666",
 				comm: 		"MakeMove",
 				userName: 	"Solvi",
 				x: 			0,
@@ -68,6 +72,7 @@ describe('make move game command', function() {
 			}; 
 			then = [{
 				id: 		"1",
+				gameId: 	"666",
 				event: 		"IllegalMove",
 				userName: 	"Solvi",
 				name: 		"FirstGame",
@@ -83,6 +88,7 @@ describe('make move game command', function() {
 		it('should reject a move if O tries to be first', function() {
 			when = {
 				id: 		"1",
+				gameId: 	"666",
 				comm: 		"MakeMove",
 				userName: 	"Smurf",
 				x: 			0,
@@ -92,6 +98,7 @@ describe('make move game command', function() {
 			};
 			then = [{
 				id: 		"1",
+				gameId: 	"666",
 				event: 		"IllegalMove",
 				userName: 	"Smurf",
 				name: 		"FirstGame",

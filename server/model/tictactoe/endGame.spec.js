@@ -53,9 +53,12 @@ describe('won game command', function() {
 		};
 		then = [{
 			id: 		"1",
-			event: 		"X Won",
+			event: 		"GameWon",
 			userName: 	"Solvi",
 			name: 		"FirstGame",
+			x: 			1,
+			y: 			2,
+			side: 		"X",
 			timeStamp: 	"2015.12.02T11:30:50"
 		}];
 
@@ -96,9 +99,12 @@ describe('won game command', function() {
 		};
 		then = [{
 			id: 		"1",
-			event: 		"X Won",
+			event: 		"GameWon",
 			userName: 	"Solvi",
 			name: 		"FirstGame",
+			x: 			2,
+			y: 			0,
+			side: 		"X",
 			timeStamp: 	"2015.12.02T11:30:50"
 		}];
 
@@ -139,9 +145,12 @@ describe('won game command', function() {
 		};
 		then = [{
 			id: 		"1",
-			event: 		"X Won",
+			event: 		"GameWon",
 			userName: 	"Solvi",
 			name: 		"FirstGame",
+			x: 			2,
+			y: 			2,
+			side: 		"X",
 			timeStamp: 	"2015.12.02T11:30:50"
 		}];
 
@@ -182,9 +191,12 @@ describe('won game command', function() {
 		};
 		then = [{
 			id: 		"1",
-			event: 		"X Won",
+			event: 		"GameWon",
 			userName: 	"Solvi",
 			name: 		"FirstGame",
+			x: 			2,
+			y: 			0,
+			side: 		"X",
 			timeStamp: 	"2015.12.02T11:30:50"
 		}];
 
@@ -288,6 +300,9 @@ describe('won game command', function() {
 			event: 		"Draw",
 			userName: 	"Solvi",
 			name: 		"FirstGame",
+			x: 			2,
+			y: 			2,
+			side: 		"X",
 			timeStamp: 	"2015.12.02T11:30:50"
 		}];
 

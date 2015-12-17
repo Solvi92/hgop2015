@@ -37,7 +37,7 @@ describe('Controller: TictactoeControllerCtrl', function () {
   it('should init creator to side X', function () {
     getHistory();
 
-    expect(scope.me.userName).toBe('Creator');
+    expect(scope.me).toBe('Creator');
   });
 
   it('should init joiner to side O', function () {
@@ -46,7 +46,7 @@ describe('Controller: TictactoeControllerCtrl', function () {
 
     getHistory();
 
-    expect(scope.me.userName).toBe('Joiner');
+    expect(scope.me).toBe('Joiner');
   });
 
 
@@ -55,16 +55,12 @@ describe('Controller: TictactoeControllerCtrl', function () {
       event: 'GameCreated',
       name: 'Game Number one',
       gameId: '123',
-      user: {
-        userName: 'Creator'
-      }
+      userName: 'Creator'
     }, {
       event: 'GameJoined',
       name: 'Game Number one',
       gameId: '123',
-      user: {
-        userName: 'Joiner'
-      }
+      userName: 'Joiner'
     }]);
     httpBackend.flush();
   }
@@ -72,38 +68,34 @@ describe('Controller: TictactoeControllerCtrl', function () {
   it('should post side from current user X', function () {
     getHistory();
     httpBackend.expectPOST('/api/placeMove/', {
+      id: '1',
       gameId: '87687',
-      comm: 'PlaceMove',
-      user: {
-        userName: 'Gummi'
-      },
+      comm: 'MakeMove',
+      userName: 'Gummi',
       timeStamp: '2014-12-02T11:29:29',
-      move: {
-        xy:{x:2, y:0},
-        side: 'X'
-      }
+      x: 2,
+      y: 0,
+      side: 'X'
     }).respond([
       {
-        event: 'MovePlaced',
-        user: {
-          userName: 'Gummi'
-        },
+        id: '1',
+        event: 'MoveMade',
+        userName: 'Gummi',
         timeStamp: '2014-12-02T11:29:29',
-        move: {
-          xy:{x:2, y:0},
-          side: 'X'
-        }
+        x: 2,
+        y: 0,
+        side: 'X'
       }
     ]);
 
     scope.gameId = '87687';
     scope.name = 'TheSecondGame';
-
+    
     location.search('gameSide', 'X');
     scope.me = {userName: 'Gummi'};
     scope.gameState.gameId = '87687';
 
-    scope.placeMove({x:2, y:0});
+    scope.placeMove([2, 0]);
     httpBackend.flush();
 
     expect(scope.myTurn()).toBe(false);
@@ -115,27 +107,22 @@ describe('Controller: TictactoeControllerCtrl', function () {
 
     getHistory();
     httpBackend.expectPOST('/api/placeMove/', {
+      id: '1',
       gameId: '87687',
-      comm: 'PlaceMove',
-      user: {
-        userName: 'Gummi'
-      },
+      comm: 'MakeMove',
+      userName: 'Gummi',
       timeStamp: '2014-12-02T11:29:29',
-      move: {
-        xy:{x:2, y:1},
-        side: 'O'
-      }
+      x: 2,
+      y: 1,
+      side: 'O'
     }).respond([
       {
-        event: 'MovePlaced',
-        user: {
-          userName: 'Gummi'
-        },
+        event: 'MoveMade',
+        userName: 'Gummi',
         timeStamp: '2014-12-02T11:29:29',
-        move: {
-          xy:{x:2, y:1},
-          side: 'O'
-        }
+        x: 2,
+        y: 1,
+        side: 'O'
       }
     ]);
 
@@ -147,7 +134,7 @@ describe('Controller: TictactoeControllerCtrl', function () {
     scope.me = {userName: 'Gummi'};
     scope.gameState.gameId = '87687';
 
-    scope.placeMove({x:2, y:1});
+    scope.placeMove([2, 1]);
     httpBackend.flush();
 
     expect(scope.myTurn()).toBe(false);
@@ -161,16 +148,12 @@ describe('Controller: TictactoeControllerCtrl', function () {
       event: 'GameCreated',
       name: 'Game Number one',
       gameId: '123',
-      user: {
-        userName: 'Creator'
-      }
+      userName: 'Creator'
     }, {
       event: 'GameJoined',
       name: 'Game Number one',
       gameId: '123',
-      user: {
-        userName: 'Joiner'
-      }
+      userName: 'Joiner'
     }]);
 
     interval.flush(2001);

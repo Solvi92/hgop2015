@@ -49,10 +49,9 @@ describe('Controller: JoinGameCtrl', function () {
       id: '1234',
       gameId: '123',
       comm: 'JoinGame',
-      user: {
-        userName: 'Gummi',
-        side: 'O'
-      },
+      userName: 'Gummi',
+      side: 'O',
+      name: 'main game',
       timeStamp: '2014-12-02T11:29:29'
     }).respond([
         {event: 'GameJoined'}

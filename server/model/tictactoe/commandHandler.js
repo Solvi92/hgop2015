@@ -48,6 +48,7 @@ module.exports = function commandHandler(events) {
 				}
 				return [{
 					id: 	    	cmd.id,
+					gameId: 		cmd.gameId,
 					event: 			"GameJoined",
 					userName:   	cmd.userName,
 					otherUserName: 	gameState.gameCreatedEvent.userName,
@@ -62,6 +63,7 @@ module.exports = function commandHandler(events) {
 				(cmd.side === "O" && !gameState.firstMoveMade)) {
 				return [{
 					id: 		cmd.id,
+					gameId: 	cmd.gameId,
 					event: 		"IllegalMove",
 					userName: 	cmd.userName,
 					name: 		gameState.gameCreatedEvent.name,
@@ -108,9 +110,12 @@ module.exports = function commandHandler(events) {
     			return [{
 					id: 		cmd.id,
 					gameId: 	cmd.gameId,
-					event: 		cmd.side + " Won",
+					event: 		"GameWon",
 					userName: 	cmd.userName,
 					name: 		gameState.gameCreatedEvent.name,
+					x:       	cmd.x,
+					y:       	cmd.y,
+					side:      	cmd.side,
 					timeStamp: 	cmd.timeStamp
 				}];
     		}
@@ -123,6 +128,9 @@ module.exports = function commandHandler(events) {
 					event:     	"Draw",
 					userName: 	cmd.userName,
 					name:     	gameState.gameCreatedEvent.name,
+					x:       	cmd.x,
+					y:       	cmd.y,
+					side:      	cmd.side,
 					timeStamp: 	cmd.timeStamp 
 				}] 
     		}
@@ -130,6 +138,7 @@ module.exports = function commandHandler(events) {
     		/*Someone just moved and it's ok*/
 			return [{
 				id:      	cmd.id,
+				gameId: 	cmd.gameId,
 				event:     	"MoveMade",
 				userName:  	cmd.userName,
 				name:     	gameState.gameCreatedEvent.name,
