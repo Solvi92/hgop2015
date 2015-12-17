@@ -96,6 +96,7 @@ describe('Factory: TictacToeState', function () {
         event: 'GameCreated',
         userName: 'Gummi',
         name: 'TheFirstGame',
+        side: 'X',
         timeStamp: '2014-12-02T11:29:29'
       }]
     );
@@ -109,6 +110,9 @@ describe('Factory: TictacToeState', function () {
         event: 'GameWon',
         userName: 'Gummi',
         name: 'TheFirstGame',
+        side: 'X',
+        x: 1,
+        y: 1,
         timeStamp: '2014-12-02T11:29:29'
       }]
     );
@@ -123,6 +127,9 @@ describe('Factory: TictacToeState', function () {
         event: 'GameDraw',
         userName: 'Gummi',
         name: 'TheFirstGame',
+        side: 'X',
+        x: 1,
+        y: 1,
         timeStamp: '2014-12-02T11:29:29'
       }]
     );
